@@ -90,6 +90,20 @@ const matchRows = [
 ]
 
 function App() {
+  function handleRegister() {
+    const mobileInput = document.querySelector('.login-panel input[aria-label="Mobile Number"]');
+    const passInput = document.querySelector('.login-panel input[aria-label="Password"]');
+    const mobile = mobileInput ? mobileInput.value.trim() : '';
+    const pass = passInput ? passInput.value.trim() : '';
+    if (!mobile || !pass) {
+      alert('Please enter mobile number and password to register.');
+      return;
+    }
+
+    // Simulate account creation (replace with real API call later)
+    // After successful signup, redirect to the jackpot page
+    window.location.href = '/gh/jackpot';
+  }
   return (
     <div className="page-shell">
       <header className="topbar">
@@ -109,7 +123,7 @@ function App() {
               <input type="password" placeholder="Password" aria-label="Password" />
             </div>
             <button className="btn login">Log In</button>
-            <button className="btn register">Register</button>
+            <button className="btn register" onClick={handleRegister}>Register</button>
             <label className="remember">
               <input type="checkbox" defaultChecked />
               <span>Keep me signed in</span>
